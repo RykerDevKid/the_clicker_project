@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE CLICKER PROJECT</title>
+</head>
+<body>
+    
+    
+
+    <div class="container">
+
+        <p id="cookie-text">American Money: 0</p>
+        <input type="button" value="Scam a crippled-old person." onclick="bakeCookie()" id="scam">
+        <input type="button" value="Hire a Child" onclick="hireBaker()" id="hire">
+
+        <input type="button" value="Fake Charity Fundraiser" onclick="setupFundraiser()" id="fundraiser">
+    </div>
+
+    <script>
+        var cookies = 0;
+        var cpc = 1;
+        var req = 50;
+        var fund_req = req*2;
+
+
+
+        var hire_baker_times = 0;
+
+        function bakeCookie() {
+            cookies += cpc;
+            document.getElementById('cookie-text').innerHTML = "American Money: " + cookies;
+        }
+
+        function hireBaker() {
+            if(cookies >= req) {
+                
+                var works = 1;
+                if(works == 1) {
+                    if (hire_baker_times == 1) {
+                        document.getElementById('fundraiser').style.visibility = "visible";
+                        alert("You've unlocked a new option!")
+                    }
+                    works = 0;
+                }
+
+                hire_baker_times += 1;
+
+                cpc += 4;
+                cookies -= req;
+                req *= 2;
+                fund_req = req*2;
+                document.getElementById('cookie-text').innerHTML = "American Money: " + cookies;
+            } else {
+                alert("You must acquire '" + req + "' American Money to hire a child.");
+            }
+        }
+
+        
+
+        function setupFundraiser() {
+            if (cookies >= fund_req) {
+                cpc += 8;
+                cookies -= fund_req;
+                req *= 2;
+                fund_req *= 2;
+                document.getElementById('cookie-text').innerHTML = "American Money: " + cookies;
+            } else {
+                alert("You must acquire '" + fund_req + "' American Money to setup a fake charity.");
+            }
+        }
+    </script>
+
+    <style>
+        #cookie-text {
+            text-align: center;
+        }
+
+        .container {
+            border: 1px;
+            height: 200px;
+            position: relative;
+        }
+
+        #scam {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translateY(-85%);
+            transform: translateX(-50%);
+        }
+
+        #hire {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateY(-100%);
+            transform: translateX(-50%);
+        }
+
+        #fundraiser {
+            position: absolute;
+            top: 115%;
+            left: 50%;
+            transform: translateY(-115%);
+            transform: translateX(-50%);
+            visibility: hidden;
+        }
+
+        #cookie-text {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateY(-40%);
+            transform: translateX(-50%);
+        }
+    </style>
+</body>
+</html>
