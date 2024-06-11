@@ -3,6 +3,23 @@ var cookies = 0;
 var cps = 0;
 var req = 15;
 
+// COOKIES
+
+window.onbeforeunload = function() {
+    window.onunload = function() {
+        localStorage.setItem("cookies", cookies);
+        localStorage.setItem("cps", cps);
+        localStorage.setItem("req", req);
+    }
+    return undefined;
+}
+
+window.onload = function() {
+    cookies = localStorage.getItem("cookies");
+    cps = localStorage.getItem("cps");
+    req = localStorage.getItem("req");
+}
+
 // UPDATE TEXT
 
 window.setInterval(function() {
