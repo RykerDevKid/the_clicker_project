@@ -2,119 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="description" content="Ryker's custom cookie clicker game made in HTML, CSS, and JS!">
+    <meta name="author" content="Ryker Sage">
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE CLICKER PROJECT</title>
+    <title>Ryker's Clicker Game</title>
 </head>
 <body>
     
-    
-
     <div class="container">
 
-        <p id="cookie-text">American Money: 0</p>
-        <input type="button" value="Scam a crippled person." onclick="bakeCookie()" id="scam">
-        <input type="button" value="Hire a Child" onclick="hireBaker()" id="hire">
+        <p id="cookie-value">0 dollars</p>
 
-        <input type="button" value="Fake Charity Fundraiser" onclick="setupFundraiser()" id="fundraiser">
+        <img class="spacebar" id="spc" src="images/SPACE_BAR.png" alt="" width="512px" height="256px">
+
+        <p id="upgrades-title">upgrades</p>
+
+        <img id="hire-btn" class="hire-worker-button" src="images/HIRE_A_WORKER.png" alt="" width="320px" height="192px">
+
     </div>
 
-    <script>
-        var cookies = 0;
-        var cpc = 1;
-        var req = 50;
-        var fund_req = req*2;
+    <div class="mobile_device_380px">
 
+        <p id="cookie-value-380px">0 dollars</p>
 
+        <img class="spacebar-380px" id="spc" src="images/SPACE_BAR.png" alt="" width="512px" height="256px">
 
-        var hire_baker_times = 0;
+        <p id="upgrades-title-380px">upgrades</p>
 
-        function bakeCookie() {
-            cookies += cpc;
-            document.getElementById('cookie-text').innerHTML = "American Money: " + cookies;
-        }
+        <img id="hire-btn-380px" class="hire-worker-button" src="images/HIRE_A_WORKER.png" alt="" width="320px" height="192px">
 
-        function hireBaker() {
-            if(cookies >= req) {
-                
-                var works = 1;
-                if(works == 1) {
-                    if (hire_baker_times == 2) {
-                        document.getElementById('fundraiser').style.visibility = "visible";
-                        alert("You've unlocked a new option!")
-                    }
-                    works = 0;
-                }
+    </div>
 
-                hire_baker_times += 1;
-
-                cpc += 4;
-                cookies -= req;
-                req *= 2;
-                fund_req = req*2;
-                document.getElementById('cookie-text').innerHTML = "American Money: " + cookies;
-            } else {
-                alert("You must acquire '" + req + "' American Money to hire a child.");
-            }
-        }
-
-        
-
-        function setupFundraiser() {
-            if (cookies >= fund_req) {
-                cpc += 8;
-                cookies -= fund_req;
-                req *= 2;
-                fund_req *= 2;
-                document.getElementById('cookie-text').innerHTML = "American Money: " + cookies;
-            } else {
-                alert("You must acquire '" + fund_req + "' American Money to setup a fake charity.");
-            }
-        }
-    </script>
-
-    <style>
-        #cookie-text {
-            text-align: center;
-        }
-
-        .container {
-            border: 1px;
-            height: 200px;
-            position: relative;
-        }
-
-        #scam {
-            position: absolute;
-            top: 85%;
-            left: 50%;
-            transform: translateY(-85%);
-            transform: translateX(-50%);
-        }
-
-        #hire {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateY(-100%);
-            transform: translateX(-50%);
-        }
-
-        #fundraiser {
-            position: absolute;
-            top: 115%;
-            left: 50%;
-            transform: translateY(-115%);
-            transform: translateX(-50%);
-            visibility: hidden;
-        }
-
-        #cookie-text {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translateY(-40%);
-            transform: translateX(-50%);
-        }
-    </style>
+    <script src="main.js"></script>
 </body>
 </html>
