@@ -6,9 +6,12 @@ var req = 15;
 // COOKIES
 
 window.onload = function() {
-    cookies = localStorage.getItem("cookies");
-    cps = localStorage.getItem("cps");
-    req = localStorage.getItem("req");
+    var save_cookies = JSON.parse(localStorage.getItem("cookies"));
+    if (typeof save_cookies !== "undefined") cookies = save_cookies
+    var save_cps = JSON.parse(localStorage.getItem("cps"));
+    if (typeof save_cps !== "undefined") cps = save_cps;
+    var save_req = JSON.parse(localStorage.getItem("req"));
+    if (typeof save_req !== "undefined") req = save_req;
 };
 
 window.setInterval(function() {
