@@ -18,7 +18,7 @@ window.setInterval(function() {
     localStorage.setItem("cookies", cookies);
     localStorage.setItem("cps", cps);
     localStorage.setItem("req", req);
-}, 50);
+}, 5000);
 
 // UPDATE TEXT
 
