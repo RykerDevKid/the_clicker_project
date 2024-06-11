@@ -5,20 +5,17 @@ var req = 15;
 
 // COOKIES
 
-window.onbeforeunload = function() {
-    window.onunload = function() {
-        localStorage.setItem("cookies", cookies);
-        localStorage.setItem("cps", cps);
-        localStorage.setItem("req", req);
-    }
-    return undefined;
-}
-
 window.onload = function() {
     cookies = localStorage.getItem("cookies");
     cps = localStorage.getItem("cps");
     req = localStorage.getItem("req");
-}
+};
+
+window.setInterval(function() {
+    localStorage.setItem("cookies", cookies);
+    localStorage.setItem("cps", cps);
+    localStorage.setItem("req", req);
+}, 50);
 
 // UPDATE TEXT
 
@@ -83,4 +80,4 @@ hirebtn.addEventListener("mousedown", () => {
 });
 hirebtn.addEventListener("mouseup", () => {
     hirebtn.src = "images/HIRE_A_WORKER.png";
-})
+});
